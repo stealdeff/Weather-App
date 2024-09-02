@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import WeatherApp from './components/Weather';
+import WeatherCity from './components/CityWeather';
+import WeatherLatLon from './components/LatLonWeather';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <>
     <App />
-    <WeatherApp/>
-  </React.StrictMode>
+    <WeatherCity/>
+    <WeatherLatLon/>
+  </>
 );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-const WeatherApp = () => {
+const WeatherCity = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const apiKey = '675bc84edff6e3cc3a58d263b6d82b1f';
@@ -51,4 +50,5 @@ const WeatherApp = () => {
   );
 };
 
-export default WeatherApp;
+
+export default WeatherCity;
