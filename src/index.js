@@ -7,9 +7,7 @@ import WeatherLatLon from './components/LatLonWeather';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <>
+  <React.StrictMode>
     <App />
-    <WeatherCity/>
-    <WeatherLatLon/>
-  </>
+  </React.StrictMode>
 );
