@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from "./components/Home";
 import WeatherCity from "./components/CityWeather";
 import './App.css'; 
+
 const App = () => {
+  useEffect(() => {
+    const header = document.querySelector('.header');
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Измените коэффициент для настройки эффекта
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Router>
       <div className="App">
@@ -23,7 +35,7 @@ const App = () => {
         </div>
         <Routes>
           <Route path="/Home" element={<Home />} />
-          <Route path="/CityWeather" element={<WeatherCity/>}/>
+          <Route path="/CityWeather" element={<WeatherCity />} />
         </Routes>
       </div>
     </Router>
