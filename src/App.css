@@ -7,24 +7,35 @@
 }
 
 .header {
-  min-height: 60vh; 
+  min-height: 80vh; /* Уменьшите минимальную высоту по желанию */
   width: 100%;
   background-image: url(https://get.wallhere.com/photo/1920x1200-px-clouds-landscape-mountains-nature-1261395.jpg);
-  background-size: cover; 
-  background-attachment: fixed; 
+  background-size: cover; /* Изображение будет масштабироваться */
+  background-attachment: fixed; /* Для эффекта прокрутки */
   background-position: top center; /* Смещение изображения вверх */
   color: #659DBD;
-  position: relative;
+  position: relative; /* Измените на relative или sticky */
   z-index: 1;
-  padding: 20px 0px; 
+  padding: 20px 0; /* Отступы сверху и снизу */
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 2; /* Увеличен z-index для навигации */
+  position: -webkit-sticky; 
+  position: sticky; 
+  top: 0; 
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 2; 
+  padding: 10px 0; 
+}
+
+.nav-links {
+  text-align: right;
+  background: #BC986A;
+  padding: 10px 30px;
+  border-bottom-left-radius: 18px;
 }
 
 
@@ -37,12 +48,6 @@ nav {
   padding-left: 10%;
 }
 
-.nav-links {
-  text-align: right;
-  background: #BC986A;
-  padding: 10px 30px;
-  border-bottom-left-radius: 18px;
-}
 
 .nav-links ul li {
   list-style: none;
