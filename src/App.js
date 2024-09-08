@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from "./components/Home";
 import WeatherCity from "./components/CityWeather";
 import './App.css'; 
+import WeatherLatLon from "./components/LatLonWeather";
 
 const App = () => {
   useEffect(() => {
     const header = document.querySelector('.header');
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Измените коэффициент для настройки эффекта
+      header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; 
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -26,7 +27,7 @@ const App = () => {
               <ul>
                 <li><Link to="/Home">Home</Link></li>
                 <li><Link to="/CityWeather">Прогноз погоды в городе</Link></li>
-                <li><Link to="#">Portfolio</Link></li>
+                <li><Link to="/LatLonWeather">Прогноз по координатам</Link></li>
                 <li><Link to="#">About</Link></li>
                 <li><Link to="#">Connect</Link></li>
               </ul>
@@ -36,7 +37,9 @@ const App = () => {
         <Routes>
           <Route path="/Home" element={<Home />} />
           <Route path="/CityWeather" element={<WeatherCity />} />
+          <Route path="/LatLonWeather" element={<WeatherLatLon/>}/>
         </Routes>
+
       </div>
     </Router>
   );

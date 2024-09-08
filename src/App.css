@@ -7,16 +7,16 @@
 }
 
 .header {
-  min-height: 80vh; /* Уменьшите минимальную высоту по желанию */
+  min-height: 70vh; 
   width: 100%;
   background-image: url(https://get.wallhere.com/photo/1920x1200-px-clouds-landscape-mountains-nature-1261395.jpg);
-  background-size: cover; /* Изображение будет масштабироваться */
-  background-attachment: fixed; /* Для эффекта прокрутки */
-  background-position: top center; /* Смещение изображения вверх */
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-position: top center; 
   color: #659DBD;
-  position: relative; /* Измените на relative или sticky */
+  position: relative; 
   z-index: 1;
-  padding: 20px 0; /* Отступы сверху и снизу */
+  padding: 20px 0; 
 }
 
 nav {
