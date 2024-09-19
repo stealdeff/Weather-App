@@ -6,18 +6,18 @@ import WeatherLatLon from "./components/LatLonWeather";
 import './App.css'; 
 
 const App = () => {
-  const [isNavVisible, setIsNavVisible] = useState(false); 
+  // const [isNavVisible, setIsNavVisible] = useState(true); 
 
-  useEffect(() => {
-    const header = document.querySelector('.header');
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; 
-    };
+  // useEffect(() => {
+  //   const header = document.querySelector('.header');
+  //   const handleScroll = () => {
+  //     const scrollPosition = window.scrollY;
+  //     header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; 
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, []);
 
   return (
     <Router>
@@ -25,14 +25,7 @@ const App = () => {
         <div className="header">
           <nav>
             <a href="#" className="logo">Weather App</a>
-            <button 
-          className="toggle-nav" 
-          onClick={() => setIsNavVisible(!isNavVisible)}
-        >
-          {isNavVisible ? 'Скрыть навигацию' : 'Показать навигацию'}
-        </button>
-
-            {isNavVisible && (
+      
               <div className="nav-links">
                 <ul>
                   <li><Link to="/Home">Home</Link></li>
@@ -42,7 +35,7 @@ const App = () => {
                   <li><Link to="#">Connect</Link></li>
                 </ul>
               </div>
-            )}
+            
           </nav>
         </div>
         
