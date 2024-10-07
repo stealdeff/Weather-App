@@ -28,11 +28,10 @@ const App = () => {
       
               <div className="nav-links">
                 <ul>
-                  <li><Link to="/Home">Home</Link></li>
-                  <li><Link to="/CityWeather">Прогноз погоды в городе</Link></li>
-                  <li><Link to="/LatLonWeather">Прогноз по координатам</Link></li>
-                  <li><Link to="#">About</Link></li>
-                  <li><Link to="#">Connect</Link></li>
+                  <li><Link to="/Home">🏠 Главная страница</Link></li>
+                  <li><Link to="/CityWeather">🌤️ Погода в вашем городе</Link></li>
+                  <li><Link to="/LatLonWeather">🗺️Узнать погоду по GPS</Link></li>
+                  <li><Link to="#">ℹ️ Узнать больше</Link></li>
                 </ul>
               </div>
             
