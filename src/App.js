@@ -4,7 +4,7 @@ import Train from "./components/Home";
 import WeatherCity from "./components/CityWeather";
 import WeatherLatLon from "./components/LatLonWeather";
 import './App.css'; 
-
+import History from "./components/Historical";
 const App = () => {
   return (
     <Router>
@@ -18,7 +18,7 @@ const App = () => {
                   <li><Link to="/Home">🏠 Main page</Link></li>
                   <li><Link to="/CityWeather">🌤️ Weather in your city</Link></li>
                   <li><Link to="/LatLonWeather">🗺️Find the weather by GPS</Link></li>
-                  <li><Link to="#">ℹ️ Learn more</Link></li>
+                  <li><Link to="/Historical">📜 Historical Weather</Link></li>
                 </ul>
               </div>
             
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/Home" element={<Train/>} />
           <Route path="/CityWeather" element={<WeatherCity />} />
           <Route path="/LatLonWeather" element={<WeatherLatLon />} />
+          <Route path="/Historical" element={<History />} />
         </Routes>
       </div>
     </Router>
