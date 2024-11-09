@@ -12,7 +12,6 @@ const WeatherCity = () => {
         `http://api.weatherstack.com/current?access_key=99a1f5a417b2631da7765b170ca013f5&query=${encodeURIComponent(city)}`
       );
       const data = await response.json();
-
       if (data.success === false) {
         throw new Error(data.error.info);
       }
@@ -26,23 +25,30 @@ const WeatherCity = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e);
+    }
+  };
+
   const handleCityChange = (e) => {
     setCity(e.target.value);
   };
 
   return (
     <div style={{ minHeight: '100vh', padding: '20px' }}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
         <input
           type="text"
           placeholder="Введите название города"
           value={city}
           onChange={handleCityChange}
+          onKeyDown={handleKeyDown} 
         />
         <button type="submit">Показать погоду</button>
       </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{color: 'red'}}>{error}</p>}
 
       {weatherData ? (
         <div>

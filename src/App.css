@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #C0C0C0  ; 
+  background-color: #a1bbd6  ; 
 }
 .header {
   min-height: 60vh; 
@@ -52,7 +52,7 @@ nav {
 
 .nav-links {
   text-align: right;
-  background: #FFC0CB	; 
+  background: #659DBD	; 
   padding: 10px 30px; 
   border-bottom-left-radius: 18px; 
 }
@@ -68,10 +68,17 @@ nav {
 }
 
 .nav-links ul li a {
-  color: #000; 
+  color: #042131; 
   text-decoration: none; 
   font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  transition: color 0.3s ease, font-size 0.3s ease;
 }
+.nav-links ul li a:hover {
+  color: #000; 
+  font-size: 20px; 
+  }
 
 .left-sidebar {
   width: 20%;
