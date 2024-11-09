@@ -47,10 +47,19 @@ const WeatherCity = () => {
       {weatherData ? (
         <div>
           <h2>{weatherData.location.name}</h2>
+          <p>Страна: {weatherData.location.country}</p>
+          <p>Регион: {weatherData.location.region}</p>
+          <p>Местное время: {weatherData.location.localtime}</p>
           <p>Температура: {weatherData.current.temperature}°C</p>
-          <p>Погода: {weatherData.current.weather_descriptions[0]}</p>
-          <p>Влажность: {weatherData.current.humidity}%</p>
+          <p>Погодные условия: {weatherData.current.weather_descriptions[0]}</p>
           <p>Скорость ветра: {weatherData.current.wind_speed} м/с</p>
+          <p>Направление ветра: {weatherData.current.wind_dir}</p>
+          <p>Давление: {weatherData.current.pressure} гПа</p>
+          <p>Влажность: {weatherData.current.humidity}%</p>
+          <p>Облачность: {weatherData.current.cloudcover}%</p>
+          <p>Ощущается как: {weatherData.current.feelslike}°C</p>
+          <p>УФ-индекс: {weatherData.current.uv_index}</p>
+          <p>Видимость: {weatherData.current.visibility} км</p>
         </div>
       ) : (
         <p>Загрузка...</p>
