@@ -1,23 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-* {
+
+body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
+  background-color: #C0C0C0  ; 
 }
-
 .header {
-  min-height: 40vh; 
+  min-height: 60vh; 
   width: 100%;
-  background-color: #00BFFF;
-  /* background-image: url(https://get.wallhere.com/photo/1920x1200-px-clouds-landscape-mountains-nature-1261395.jpg); */
+  background-color: #accfda;
+  background-image: url(https://get.wallhere.com/photo/1920x1200-px-clouds-landscape-mountains-nature-1261395.jpg); 
   background-size: cover; 
   background-attachment: fixed; 
   background-position: top center; 
   color: #659DBD;
-  position: relative; 
-  z-index: 1;
-  padding: 20px 0; 
+
 }
 
 nav {
@@ -90,5 +89,9 @@ nav {
   justify-content: space-between;
   position: relative;
   margin-top: 5%;
+}
+.main-home > ul > li::marker{
+  font-size: 1.4rem;
+    color: #61DAFB;
 }
 

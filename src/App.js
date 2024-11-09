@@ -1,24 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Home from "./components/Home";
+import Train from "./components/Home";
 import WeatherCity from "./components/CityWeather";
 import WeatherLatLon from "./components/LatLonWeather";
 import './App.css'; 
 
 const App = () => {
-  // const [isNavVisible, setIsNavVisible] = useState(true); 
-
-  // useEffect(() => {
-  //   const header = document.querySelector('.header');
-  //   const handleScroll = () => {
-  //     const scrollPosition = window.scrollY;
-  //     header.style.backgroundPositionY = `${scrollPosition * 0.5}px`; 
-  //   };
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
-
   return (
     <Router>
       <div className="App">      
@@ -39,7 +26,7 @@ const App = () => {
         </div>
         
         <Routes>
-          <Route path="/Home" element={<Home />} />
+          <Route path="/Home" element={<Train/>} />
           <Route path="/CityWeather" element={<WeatherCity />} />
           <Route path="/LatLonWeather" element={<WeatherLatLon />} />
         </Routes>
