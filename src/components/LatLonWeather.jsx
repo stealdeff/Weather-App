@@ -13,17 +13,17 @@ const WeatherLatLon = () => {
 
         try {
             const response = await fetch(
-                `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+              `http://api.weatherstack.com/current?access_key=99a1f5a417b2631da7765b170ca013f5&query=${lat},${lon}`
             );
 
             if (!response.ok) {
-                throw new Error('Ошибка при получении данных о погоде');
+                throw new Error('Error when receiving weather data:');
             }
 
             const data = await response.json();
             setWeatherData(data);
         } catch (error) {
-            console.error('Ошибка при получении данных о погоде:', error);
+            console.error('Error when receiving weather data:', error);
             setError(error.message);
             setWeatherData(null);
         }
@@ -42,46 +42,57 @@ const WeatherLatLon = () => {
         <div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="longitude">Долгота:</label>
+                    <label htmlFor="longitude">Longitude: </label>
                     <input
                         id="longitude"
                         name="lon"
                         type="text"
-                        placeholder="Введите долготу"
+                        placeholder="Enter the longitude"
                         value={lon}
                         onChange={handleCoordinChange}
                         required
                     />
                 </div>
                 <div>
-                    <label htmlFor="latitude">Широта:</label>
+                    <label htmlFor="latitude">Latitude: </label>
                     <input
                         id="latitude"
                         name="lat"
                         type="text"
-                        placeholder="Введите широту"
+                        placeholder="Enter the latitude"
                         value={lat}
                         onChange={handleCoordinChange}
                         required
                     />
                 </div>
-                <button type="submit">Показать погоду</button>
+                <button type="submit">Show the weather</button>
             </form>
 
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
             {weatherData ? (
                 <div>
-                    <h2>
-                        Погода в {weatherData.name || `местности (${lat}, ${lon})`}
-                    </h2>
-                    <p>Температура: {weatherData.main.temp}°C</p>
-                    <p>Погода: {weatherData.weather[0].description}</p>
-                    <p>Влажность: {weatherData.main.humidity}%</p>
-                    <p>Скорость ветра: {weatherData.wind.speed} м/с</p>
-                </div>
+                <h2>
+                    Weather in {weatherData.location.name || `location (${lat}, ${lon})`}
+                </h2>
+                <ul className='weather_latlon'>
+                <li>Country: {weatherData.location.country}</li>
+  <li>Region: {weatherData.location.region}</li>
+  <li>Local time: {weatherData.location.localtime}</li>
+  <li>Temperature: {weatherData.current.temperature}°C</li>
+  <li>Weather description: {weatherData.current.weather_descriptions[0]}</li>
+  <li>Wind speed: {(weatherData.current.wind_speed * 2.237).toFixed(1)} mph</li>
+  <li>Wind direction: {weatherData.current.wind_dir}</li>
+  <li>Pressure: {(weatherData.current.pressure * 0.750062).toFixed(1)} mmHg</li>
+  <li>Humidity: {weatherData.current.humidity}%</li>
+  <li>Cloud cover: {weatherData.current.cloudcover}%</li>
+  <li>Feels like: {weatherData.current.feelslike}°C</li>
+  <li>UV Index: {weatherData.current.uv_index}</li>
+  <li>Visibility: {(weatherData.current.visibility * 0.621371).toFixed(1)} miles</li>
+  </ul>
+            </div>
             ) : (
-                <p>Загрузка...</p>
+                <p>Loading...</p>
             )}
         </div>
     );
