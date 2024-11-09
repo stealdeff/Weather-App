@@ -19,8 +19,8 @@ const WeatherCity = () => {
       setWeatherData(data);
       setError(null); 
     } catch (error) {
-      console.error('Ошибка при получении данных о погоде:', error);
-      setError('Не удалось загрузить данные о погоде');
+      console.error('Error when receiving weather data:', error);
+      setError('Failed to download weather data');
       setWeatherData(null);
     }
   };
@@ -40,35 +40,38 @@ const WeatherCity = () => {
       <form onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
         <input
           type="text"
-          placeholder="Введите название города"
+          placeholder="Enter the name of the city"
           value={city}
           onChange={handleCityChange}
           onKeyDown={handleKeyDown} 
         />
-        <button type="submit">Показать погоду</button>
+        <button type="submit">Show the weather</button>
       </form>
 
       {error && <p style={{color: 'red'}}>{error}</p>}
 
       {weatherData ? (
-        <div>
-          <h2>{weatherData.location.name}</h2>
-          <p>Страна: {weatherData.location.country}</p>
-          <p>Регион: {weatherData.location.region}</p>
-          <p>Местное время: {weatherData.location.localtime}</p>
-          <p>Температура: {weatherData.current.temperature}°C</p>
-          <p>Погодные условия: {weatherData.current.weather_descriptions[0]}</p>
-          <p>Скорость ветра: {weatherData.current.wind_speed} м/с</p>
-          <p>Направление ветра: {weatherData.current.wind_dir}</p>
-          <p>Давление: {weatherData.current.pressure} гПа</p>
-          <p>Влажность: {weatherData.current.humidity}%</p>
-          <p>Облачность: {weatherData.current.cloudcover}%</p>
-          <p>Ощущается как: {weatherData.current.feelslike}°C</p>
-          <p>УФ-индекс: {weatherData.current.uv_index}</p>
-          <p>Видимость: {weatherData.current.visibility} км</p>
+        <div className='WeatherData'>
+         <h2>{weatherData.location.name}</h2>
+<ul className='weather_city'>
+  <li>Country: {weatherData.location.country}</li>
+  <li>Region: {weatherData.location.region}</li>
+  <li>Local time: {weatherData.location.localtime}</li>
+  <li>Temperature: {weatherData.current.temperature}°C</li>
+  <li>Weather description: {weatherData.current.weather_descriptions[0]}</li>
+  <li>Wind speed: {(weatherData.current.wind_speed * 2.237).toFixed(1)} mph</li>
+  <li>Wind direction: {weatherData.current.wind_dir}</li>
+  <li>Pressure: {(weatherData.current.pressure * 0.750062).toFixed(1)} mmHg</li>
+  <li>Humidity: {weatherData.current.humidity}%</li>
+  <li>Cloud cover: {weatherData.current.cloudcover}%</li>
+  <li>Feels like: {weatherData.current.feelslike}°C</li>
+  <li>UV Index: {weatherData.current.uv_index}</li>
+  <li>Visibility: {(weatherData.current.visibility * 0.621371).toFixed(1)} miles</li>
+</ul>
+        
         </div>
       ) : (
-        <p>Загрузка...</p>
+        <p className='load'>Loading...</p>
       )}
     </div>
   );

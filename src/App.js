@@ -15,10 +15,10 @@ const App = () => {
       
               <div className="nav-links">
                 <ul>
-                  <li><Link to="/Home">🏠 Главная страница</Link></li>
-                  <li><Link to="/CityWeather">🌤️ Погода в вашем городе</Link></li>
-                  <li><Link to="/LatLonWeather">🗺️Узнать погоду по GPS</Link></li>
-                  <li><Link to="#">ℹ️ Узнать больше</Link></li>
+                  <li><Link to="/Home">🏠 Main page</Link></li>
+                  <li><Link to="/CityWeather">🌤️ Weather in your city</Link></li>
+                  <li><Link to="/LatLonWeather">🗺️Find the weather by GPS</Link></li>
+                  <li><Link to="#">ℹ️ Learn more</Link></li>
                 </ul>
               </div>
             

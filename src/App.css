@@ -97,8 +97,13 @@ nav {
   position: relative;
   margin-top: 5%;
 }
-.main-home > ul > li::marker{
-  font-size: 1.4rem;
-    color: #61DAFB;
-}
 
+.weather_city li::marker{
+  font-size: 1.4rem;
+    color: #042131;
+  
+}
+.WeatherData h2{
+margin-left: 40px;
+font-weight: 600;
+}
