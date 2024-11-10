@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const WeatherCity = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -7,15 +7,22 @@ const WeatherCity = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const cachedData = getDataFromLocalStorage(searchTerm);
+    if (cachedData) {
+      setWeatherData(cachedData);
+      setError(null);
+      return; 
+    }
+
     try {
       const response = await fetch(
-        `http://api.weatherstack.com/current?access_key=73e03e102cbe38a057c231cf10a441f4&query=${encodeURIComponent(searchTerm)}`
+        `http://api.weatherstack.com/current?access_key=932f133c23a886f14226333c244c76e1&query=${encodeURIComponent(searchTerm)}`
       );
       const data = await response.json();
       if (data.success === false) {
         throw new Error(data.error.info);
       }
-
+      saveDataToLocalStorage(searchTerm, data);
       setWeatherData(data);
       setError(null);
     } catch (error) {
@@ -43,7 +50,6 @@ const WeatherCity = () => {
           placeholder="Enter the name of the city or IP address"
           value={searchTerm}
           onChange={handleSearchTermChange}
-          onKeyDown={handleKeyDown}
         />
         <button type="submit">Show the weather</button>
       </form>
@@ -68,7 +74,6 @@ const WeatherCity = () => {
             <li>UV Index: {weatherData.current.uv_index}</li>
             <li>Visibility: {(weatherData.current.visibility * 0.621371).toFixed(1)} miles</li>
           </ul>
-
           <cite>Search by city name and IP-address</cite>
         </div>
       )}
@@ -76,6 +81,15 @@ const WeatherCity = () => {
       {!weatherData && <p className="load">Loading...</p>}
     </div>
   );
+};
+
+const saveDataToLocalStorage = (key, data) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
+
+const getDataFromLocalStorage = (key) => {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null; 
 };
 
 export default WeatherCity;

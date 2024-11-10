@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const WeatherLatLon = () => {
     const [lat, setLat] = useState('');
@@ -9,10 +9,15 @@ const WeatherLatLon = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        const cachedData = getDataFromLocalStorage(`${lat},${lon}`);
+        if (cachedData) {
+            setWeatherData(cachedData);
+            return; 
+        }
 
         try {
             const response = await fetch(
-              `http://api.weatherstack.com/current?access_key=73e03e102cbe38a057c231cf10a441f4&query=${lat},${lon}`
+                `http://api.weatherstack.com/current?access_key=932f133c23a886f14226333c244c76e1&query=${lat},${lon}`
             );
 
             if (!response.ok) {
@@ -21,6 +26,7 @@ const WeatherLatLon = () => {
 
             const data = await response.json();
             setWeatherData(data);
+            saveDataToLocalStorage(`${lat},${lon}`, data);
         } catch (error) {
             console.error('Error when receiving weather data:', error);
             setError(error.message);
@@ -71,30 +77,39 @@ const WeatherLatLon = () => {
 
             {weatherData ? (
                 <div>
-                <h2>
-                    Weather in {weatherData.location.name || `location (${lat}, ${lon})`}
-                </h2>
-                <ul className='weather_latlon'>
-                <li>Country: {weatherData.location.country}</li>
-  <li>Region: {weatherData.location.region}</li>
-  <li>Local time: {weatherData.location.localtime}</li>
-  <li>Temperature: {weatherData.current.temperature}°C</li>
-  <li>Weather description: {weatherData.current.weather_descriptions[0]}</li>
-  <li>Wind speed: {(weatherData.current.wind_speed * 2.237).toFixed(1)} mph</li>
-  <li>Wind direction: {weatherData.current.wind_dir}</li>
-  <li>Pressure: {(weatherData.current.pressure * 0.750062).toFixed(1)} mmHg</li>
-  <li>Humidity: {weatherData.current.humidity}%</li>
-  <li>Cloud cover: {weatherData.current.cloudcover}%</li>
-  <li>Feels like: {weatherData.current.feelslike}°C</li>
-  <li>UV Index: {weatherData.current.uv_index}</li>
-  <li>Visibility: {(weatherData.current.visibility * 0.621371).toFixed(1)} miles</li>
-  </ul>
-            </div>
+                    <h2>
+                        Weather in {weatherData.location.name || `location (${lat}, ${lon})`}
+                    </h2>
+                    <ul className='weather_latlon'>
+                        <li>Country: {weatherData.location.country}</li>
+                        <li>Region: {weatherData.location.region}</li>
+                        <li>Local time: {weatherData.location.localtime}</li>
+                        <li>Temperature: {weatherData.current.temperature}°C</li>
+                        <li>Weather description: {weatherData.current.weather_descriptions[0]}</li>
+                        <li>Wind speed: {(weatherData.current.wind_speed * 2.237).toFixed(1)} mph</li>
+                        <li>Wind direction: {weatherData.current.wind_dir}</li>
+                        <li>Pressure: {(weatherData.current.pressure * 0.750062).toFixed(1)} mmHg</li>
+                        <li>Humidity: {weatherData.current.humidity}%</li>
+                        <li>Cloud cover: {weatherData.current.cloudcover}%</li>
+                        <li>Feels like: {weatherData.current.feelslike}°C</li>
+                        <li>UV Index: {weatherData.current.uv_index}</li>
+                        <li>Visibility: {(weatherData.current.visibility * 0.621371).toFixed(1)} miles</li>
+                    </ul>
+                </div>
             ) : (
                 <p>Loading...</p>
             )}
         </div>
     );
+};
+
+const saveDataToLocalStorage = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+};
+
+const getDataFromLocalStorage = (key) => {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null; 
 };
 
 export default WeatherLatLon;

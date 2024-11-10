@@ -3,7 +3,8 @@ import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import capitals from './capitals.json'
+import capitals from './capitals.json';
+
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
@@ -13,17 +14,24 @@ L.Icon.Default.mergeOptions({
 
 const WeatherMap = () => {
   const [weatherInfo, setWeatherInfo] = useState(null);
+
   const handleMarkerClick = async (city) => {
+    const cachedData = getDataFromLocalStorage(city);
+    if (cachedData) {
+      setWeatherInfo(cachedData);
+      return; 
+    }
+
     try {
       const response = await axios.get(
-        `http://api.weatherstack.com/current?access_key=73e03e102cbe38a057c231cf10a441f4&query=${city}`
+        `http://api.weatherstack.com/current?access_key=932f133c23a886f14226333c244c76e1&query=${city}`
       );
       setWeatherInfo(response.data);
+      saveDataToLocalStorage(city, response.data);
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   };
-
 
   return (
     <div>
@@ -53,6 +61,15 @@ const WeatherMap = () => {
       )}
     </div>
   );
+};
+
+const saveDataToLocalStorage = (key, data) => {
+  localStorage.setItem(key, JSON.stringify(data));
+};
+
+const getDataFromLocalStorage = (key) => {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null; 
 };
 
 export default WeatherMap;
