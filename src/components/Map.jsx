@@ -24,7 +24,7 @@ const WeatherMap = () => {
 
     try {
       const response = await axios.get(
-        `http://api.weatherstack.com/current?access_key=932f133c23a886f14226333c244c76e1&query=${city}`
+        `http://api.weatherstack.com/current?access_key=00acaf6cb2863bf4e594070163e5f6d4&query=${city}`
       );
       setWeatherInfo(response.data);
       saveDataToLocalStorage(city, response.data);
