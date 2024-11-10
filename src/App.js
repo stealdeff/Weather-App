@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Train from "./components/Home";
 import WeatherCity from "./components/CityWeather";
 import WeatherLatLon from "./components/LatLonWeather";
 import './App.css'; 
-import History from "./components/Historical";
+import WeatherMap from "./components/Map";
 const App = () => {
   return (
     <Router>
@@ -18,7 +18,7 @@ const App = () => {
                   <li><Link to="/Home">🏠 Main page</Link></li>
                   <li><Link to="/CityWeather">🌤️ Weather in your city</Link></li>
                   <li><Link to="/LatLonWeather">🗺️Find the weather by GPS</Link></li>
-                  <li><Link to="/Historical">📜 Historical Weather</Link></li>
+                  <li><Link to="/Map">🌍 Weather Map</Link></li>
                 </ul>
               </div>
             
@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/Home" element={<Train/>} />
           <Route path="/CityWeather" element={<WeatherCity />} />
           <Route path="/LatLonWeather" element={<WeatherLatLon />} />
-          <Route path="/Historical" element={<History />} />
+          <Route path="/Map" element={<WeatherMap />} />
         </Routes>
       </div>
     </Router>

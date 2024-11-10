@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 const WeatherLatLon = () => {
-    const apiKey = '675bc84edff6e3cc3a58d263b6d82b1f';
     const [lat, setLat] = useState('');
     const [lon, setLon] = useState('');
     const [weatherData, setWeatherData] = useState(null);
@@ -13,7 +12,7 @@ const WeatherLatLon = () => {
 
         try {
             const response = await fetch(
-              `http://api.weatherstack.com/current?access_key=99a1f5a417b2631da7765b170ca013f5&query=${lat},${lon}`
+              `http://api.weatherstack.com/current?access_key=73e03e102cbe38a057c231cf10a441f4&query=${lat},${lon}`
             );
 
             if (!response.ok) {
