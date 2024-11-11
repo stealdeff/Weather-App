@@ -49,7 +49,7 @@ const WeatherMap = () => {
       </MapContainer>
 
       {weatherInfo && (
-        <div className='WeatherData'>
+        <div style={{ padding: '50px' }} className='WeatherData'>
           <h2>Weather in {weatherInfo.location.name}</h2>
           <ul className='weather_latlon'>
             <li>Temperature: {weatherInfo.current.temperature}°C</li>

@@ -99,8 +99,8 @@ nav {
 }
 
 .weather_city li::marker{
-  font-size: 1.4rem;
-    color: #042131;
+  font-size: 1.7rem;
+    color: #bd155b;
   
 }
 .WeatherData h2{
@@ -109,13 +109,14 @@ font-weight: 600;
 }
 
 .weather_latlon li::marker{
-  font-size: 1.4rem;
-  color: #042131;
+  font-size: 1.7rem;
+  color: #bd155b;
+  
 }
 form {
   display: flex;
   align-items: center; 
-  
+  font-weight: bold;
   
 }
 
@@ -204,4 +205,8 @@ input{
 
 .show:disabled:before {
   filter: grayscale(100%);
+}
+.load {
+  font-weight: bold;
+  color: #042131;
 }

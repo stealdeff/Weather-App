@@ -59,7 +59,7 @@ const WeatherCity = () => {
       {weatherData && (
         <div className="WeatherData">
           <h2>{weatherData.location.name || `IP address ${searchTerm}`}</h2>
-          <ul className="weather_city">
+          <ul className="weather">
             <li>Country: {weatherData.location.country}</li>
             <li>Region: {weatherData.location.region}</li>
             <li>Local time: {weatherData.location.localtime}</li>
@@ -78,7 +78,7 @@ const WeatherCity = () => {
         </div>
       )}
 
-      {!weatherData && <p className="load">Loading...</p>}
+{!weatherData && <p className="load">Loading...</p>}
     </div>
   );
 };

@@ -80,7 +80,7 @@ const WeatherLatLon = () => {
                     <h2>
                         Weather in {weatherData.location.name || `location (${lat}, ${lon})`}
                     </h2>
-                    <ul className='weather_latlon'>
+                    <ul className='weather'>
                         <li>Country: {weatherData.location.country}</li>
                         <li>Region: {weatherData.location.region}</li>
                         <li>Local time: {weatherData.location.localtime}</li>
@@ -97,7 +97,7 @@ const WeatherLatLon = () => {
                     </ul>
                 </div>
             ) : (
-                <p>Loading...</p>
+                <p className="load">Loading...</p>
             )}
         </div>
     );
