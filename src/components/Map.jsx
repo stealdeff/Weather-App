@@ -49,9 +49,9 @@ const WeatherMap = () => {
       </MapContainer>
 
       {weatherInfo && (
-        <div style={{ marginTop: '20px' }}>
-          <h3>Weather in {weatherInfo.location.name}</h3>
-          <ul>
+        <div className='WeatherData'>
+          <h2>Weather in {weatherInfo.location.name}</h2>
+          <ul className='weather_latlon'>
             <li>Temperature: {weatherInfo.current.temperature}°C</li>
             <li>Weather description: {weatherInfo.current.weather_descriptions[0]}</li>
             <li>Humidity: {weatherInfo.current.humidity}%</li>

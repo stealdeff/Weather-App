@@ -2,7 +2,7 @@
 
 
 body {
-  margin: 0;
+  margin: 0px;
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #a1bbd6  ; 
@@ -106,4 +106,95 @@ nav {
 .WeatherData h2{
 margin-left: 40px;
 font-weight: 600;
+}
+
+.weather_latlon li::marker{
+  font-size: 1.4rem;
+  color: #042131;
+}
+form {
+  display: flex;
+  align-items: center; /* Центрируем элементы по вертикали */
+}
+
+.put_name {
+  margin-right: 10px; 
+  padding: 10px; /* Увеличиваем внутренние отступы */
+  font-size: 16px;
+  height: 44px; /* Устанавливаем фиксированную высоту для input */
+  border: 1px solid #ccc; /* Добавляем границу для визуального оформления */
+  border-radius: 5px; /* Скругление углов, чтобы соответствовать кнопке */
+  box-sizing: border-box; /* Учитываем границы и отступы в общей высоте */
+  width: 310px;
+}
+
+.show {
+  text-decoration: none;
+  color: #6b5770;
+  background-image: linear-gradient(90deg, #fd7f34, #bd155b);
+  display: inline-block;
+  padding: 10px 30px; /* Уменьшаем внутренние отступы для соответствия высоте */
+  border: 1px solid;
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+  box-sizing: border-box; /* Учитываем границы и отступы в общей высоте */
+  height: 44px; /* Устанавливаем фиксированную высоту для кнопки */
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  appearance: none;
+  touch-action: manipulation;  
+}
+
+.show:before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(90deg, #fd7f34, #bd155b);
+  z-index: -2;
+  transition: .4s;
+  border-radius: 5px;
+}
+
+.show:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #fff, #fff);
+  z-index: -1;
+  transition: .4s;
+  border-radius: 4px;
+}
+
+.show:hover {
+  color: #fff;
+  transition: .3s;
+}
+
+.show:hover:after {
+  background: linear-gradient(90deg, #fd7f34, #bd155b);
+}
+
+.show:active:after {
+  background: linear-gradient(90deg, #d96d2d, #760f3a);
+}
+
+.show:focus-visible {
+  box-shadow: 0 0 0 3px #fd7f34;
+}
+
+.show:disabled {
+  pointer-events: none;
+}
+
+.show:disabled:before {
+  filter: grayscale(100%);
 }

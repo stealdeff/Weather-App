@@ -76,7 +76,7 @@ const WeatherLatLon = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
 
             {weatherData ? (
-                <div>
+                <div className='WeatherData'>
                     <h2>
                         Weather in {weatherData.location.name || `location (${lat}, ${lon})`}
                     </h2>

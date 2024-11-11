@@ -44,14 +44,15 @@ const WeatherCity = () => {
 
   return (
     <div style={{ minHeight: '100vh', padding: '20px' }}>
-      <form onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
+      <form  onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
         <input
+        className="put_name"
           type="text"
           placeholder="Enter the name of the city or IP address"
           value={searchTerm}
           onChange={handleSearchTermChange}
         />
-        <button type="submit">Show the weather</button>
+        <button className="show" type="submit">Show the weather</button>
       </form>
 
       {error && <p style={{ color: 'red' }}>{error}</p>}
@@ -74,7 +75,7 @@ const WeatherCity = () => {
             <li>UV Index: {weatherData.current.uv_index}</li>
             <li>Visibility: {(weatherData.current.visibility * 0.621371).toFixed(1)} miles</li>
           </ul>
-          <cite>Search by city name and IP-address</cite>
+          
         </div>
       )}
 
