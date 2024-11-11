@@ -43,7 +43,7 @@ const WeatherCity = () => {
   };
 
   return (
-    <div style={{ minHeight: '100vh', padding: '20px' }}>
+    <div style={{ minHeight: '100vh', padding: '50px' }}>
       <form  onSubmit={handleSubmit} onKeyDown={handleKeyDown}>
         <input
         className="put_name"
@@ -52,11 +52,10 @@ const WeatherCity = () => {
           value={searchTerm}
           onChange={handleSearchTermChange}
         />
-        <button className="show" type="submit">Show the weather</button>
+        <button className='show' type="submit">Show the weather</button>
       </form>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
+      {error && <p style={{color:'#bd155b'}}>{error}</p>}
       {weatherData && (
         <div className="WeatherData">
           <h2>{weatherData.location.name || `IP address ${searchTerm}`}</h2>

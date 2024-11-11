@@ -8,7 +8,7 @@ body {
   background-color: #a1bbd6  ; 
 }
 .header {
-  min-height: 60vh; 
+  min-height: 80vh; 
   width: 100%;
   background-color: #accfda;
   background-image: url(https://get.wallhere.com/photo/1920x1200-px-clouds-landscape-mountains-nature-1261395.jpg); 
@@ -114,38 +114,45 @@ font-weight: 600;
 }
 form {
   display: flex;
-  align-items: center; /* Центрируем элементы по вертикали */
+  align-items: center; 
+  
+  
 }
 
-.put_name {
+input{
   margin-right: 10px; 
-  padding: 10px; /* Увеличиваем внутренние отступы */
-  font-size: 16px;
-  height: 44px; /* Устанавливаем фиксированную высоту для input */
-  border: 1px solid #ccc; /* Добавляем границу для визуального оформления */
-  border-radius: 5px; /* Скругление углов, чтобы соответствовать кнопке */
-  box-sizing: border-box; /* Учитываем границы и отступы в общей высоте */
-  width: 310px;
+  border: linear-gradient(90deg, #fd7f34, #bd155b);
+  padding: 10px; 
+  font-size: 18px;
+  height: 44px; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  box-sizing: border-box; 
+  width: 340px;
 }
+
 
 .show {
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none;
   color: #6b5770;
   background-image: linear-gradient(90deg, #fd7f34, #bd155b);
   display: inline-block;
-  padding: 10px 30px; /* Уменьшаем внутренние отступы для соответствия высоте */
+  padding: 10px 30px; 
   border: 1px solid;
   position: relative;
   z-index: 0;
   border-radius: 5px;
-  box-sizing: border-box; /* Учитываем границы и отступы в общей высоте */
-  height: 44px; /* Устанавливаем фиксированную высоту для кнопки */
+  box-sizing: border-box; 
+  height: 44px; 
   outline: none;
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
   appearance: none;
   touch-action: manipulation;  
+  
 }
 
 .show:before {
