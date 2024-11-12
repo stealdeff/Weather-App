@@ -258,9 +258,20 @@ input{
   text-align: left; 
   font-size: 1.3em;
   font-weight: 500;
+  margin-bottom: 50px;
 }
 .homeul li::marker{
   font-size: 2em;
   color: #24afd5;
   
 }
+section {
+  width: 100%; /* Занимает всю ширину родителя */
+  margin-bottom: 20px; /* Отступ между секциями */
+  padding: 10px; /* Отступ внутри секции */
+  background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон для секций */
+  border-radius: 5px; /* Закругление углов */
+  text-align: left; /* Выровнять заголовки по левому краю */
+  margin-bottom: 10px;
+}
+

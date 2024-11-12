@@ -12,7 +12,23 @@ const HomePage = () => {
 <li>By Coordinates: Enter your latitude and longitude to find the weather for any specific location.</li>
 <li>Weather Map: Explore a map of world capitals to see the weather conditions around the globe.</li>
 </ul>
-          {/* <img src="react.png" className="home-image" /> */}
+<section>
+          <h2>About the Developer:</h2>
+          <p>
+          This application was developed by Arina Naletko, a beginner frontend developer. You can contact me on Telegram: <a href="https://t.me/she_is_arina">she_is_arina</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>Other Resources:</h2>
+          <ul>
+          <li><a href="https://github.com/stealdeff" target="_blank">GitHub</a></li>
+          <li><a href="mailto:Ukam.naletko@mail.ru" target="_blank">Ukam.naletko@mail.ru</a></li>
+          </ul>
+        </section>
+        <footer>
+        <p>&copy; 2024 Weather App. All rights reserved.</p>
+      </footer>      
       </div>
   );
 };
