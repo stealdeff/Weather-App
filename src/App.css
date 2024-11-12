@@ -210,3 +210,57 @@ input{
   font-weight: bold;
   color: #042131;
 }
+/*Home page*/
+.home-container {
+  position: relative; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+  min-height: 80vh; 
+  padding: 50px 50px; 
+  background-image: url('/public/react.png'); 
+  background-repeat: no-repeat;
+  background-position: center 30%; 
+  background-size: 80%; 
+}
+
+.home-container::before {
+  content: '';
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: 1; 
+}
+
+.home-title, .home-description {
+  position: relative; 
+  z-index: 2; 
+}
+.home-title {
+  font-size: 2.5em;
+  color: #000; 
+ 
+  margin-bottom: 20px;
+}
+
+.home-description {
+  font-size: 1.9em;
+  color: #000; 
+  margin-bottom: 40px;
+}
+.homeul {
+  padding: 0;
+  margin: 0;
+  text-align: left; 
+  font-size: 1.3em;
+  font-weight: 500;
+}
+.homeul li::marker{
+  font-size: 2em;
+  color: #24afd5;
+  
+}
