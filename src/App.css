@@ -221,8 +221,8 @@ input{
   padding: 50px 50px; 
   background-image: url('/public/react.png'); 
   background-repeat: no-repeat;
-  background-position: center 30%; 
-  background-size: 80%; 
+  background-position: left 60vw top; 
+  background-size: 75%; 
 }
 
 .home-container::before {
