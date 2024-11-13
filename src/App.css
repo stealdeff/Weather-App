@@ -111,7 +111,6 @@ font-weight: 600;
 .weather_latlon li::marker{
   font-size: 1.7rem;
   color: #bd155b;
-  
 }
 form {
   display: flex;
@@ -210,7 +209,7 @@ input{
   font-weight: bold;
   color: #042131;
 }
-/*Home page*/
+
 .home-container {
   position: relative; 
   display: flex;
@@ -218,22 +217,16 @@ input{
   align-items: center; 
   text-align: center;
   min-height: 80vh; 
-  padding: 50px 50px; 
+  padding: 50px; 
   background-image: url('/public/react.png'); 
   background-repeat: no-repeat;
   background-position: left 60vw top; 
   background-size: 75%; 
+  z-index: 0; 
 }
 
 .home-container::before {
-  content: '';
-  position: absolute; 
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3); 
-  z-index: 1; 
+  display: none; 
 }
 
 .home-title, .home-description {
@@ -266,12 +259,20 @@ input{
   
 }
 section {
-  width: 100%; /* Занимает всю ширину родителя */
-  margin-bottom: 20px; /* Отступ между секциями */
-  padding: 10px; /* Отступ внутри секции */
-  background-color: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон для секций */
-  border-radius: 5px; /* Закругление углов */
-  text-align: left; /* Выровнять заголовки по левому краю */
+  width: 100%; 
+  margin-bottom: 20px; 
+  padding: 10px; 
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px; 
+  text-align: left; 
   margin-bottom: 10px;
 }
 
+.home-container section a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.home-container section a:hover {
+  color: #000;
+}

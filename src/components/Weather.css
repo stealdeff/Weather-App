@@ -1,0 +1,9 @@
+.weather_city li::marker{
+    font-size: 1.7rem;
+      color: #bd155b;
+    
+  }
+  .weather_latlon li::marker{
+    font-size: 1.7rem;
+    color: #bd155b;
+  }
