@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import  './Weather.css'
+
 const WeatherCity = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [weatherData, setWeatherData] = useState(null);

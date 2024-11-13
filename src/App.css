@@ -98,7 +98,7 @@ nav {
   margin-top: 5%;
 }
 
-.weather_city li::marker{
+.weather li::marker{
   font-size: 1.7rem;
     color: #bd155b;
   
@@ -108,7 +108,7 @@ margin-left: 40px;
 font-weight: 600;
 }
 
-.weather_latlon li::marker{
+.weather li::marker{
   font-size: 1.7rem;
   color: #bd155b;
 }
