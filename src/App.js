@@ -12,7 +12,7 @@ const App = () => {
       <div className="App">      
         <div className="header">
           <nav>
-            <a href="#" className="logo">Weather App</a>
+            <p className="logo">Weather App</p>
       
               <div className="nav-links">
                 <ul>
