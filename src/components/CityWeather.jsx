@@ -16,7 +16,7 @@ const WeatherCity = () => {
   
     try {
       const response = await fetch(
-        `http://api.weatherstack.com/current?access_key=00acaf6cb2863bf4e594070163e5f6d4&query=${encodeURIComponent(searchTerm)}`
+        `https://api.weatherstack.com/current?access_key=00acaf6cb2863bf4e594070163e5f6d4&query=${encodeURIComponent(searchTerm)}`
       );
       const data = await response.json();
       if (data.success === false) {

@@ -17,7 +17,7 @@ const WeatherLatLon = () => {
 
         try {
             const response = await fetch(
-                `http://api.weatherstack.com/current?access_key=00acaf6cb2863bf4e594070163e5f6d4&query=${lat},${lon}`
+                `https://api.weatherstack.com/current?access_key=00acaf6cb2863bf4e594070163e5f6d4&query=${lat},${lon}`
             );
 
             if (!response.ok) {
